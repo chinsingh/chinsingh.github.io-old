@@ -2,8 +2,11 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Signika Negative", sans-serif;
+  font-family: "Signika Negative";
   color: rgb(37, 37, 37);
+  overflow: hidden;
+  background: none;
+  z-index: -1;
 }
 
 a {
@@ -105,38 +108,6 @@ p{
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
-.back-to-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: 15px;
-  z-index: 996;
-  background: #389fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-
-.back-to-top i {
-  font-size: 28px;
-  color: #fff;
-  line-height: 0;
-}
-
-.back-to-top:hover {
-  background: #0e7ce2;
-  color: #fff;
-}
-
-.back-to-top.active {
-  visibility: visible;
-  opacity: 1;
-}
 
 /*--------------------------------------------------------------
 # Preloader
@@ -194,173 +165,7 @@ p{
   }
 }
 
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
-#header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 9997;
-  transition: all 0.5s;
-  padding: 15px;
-  overflow-y: auto;
-}
 
-@media (max-width: 992px) {
-  #header {
-    width: 300px;
-    background: #fff;
-    border-right: 1px solid #e6e9ec;
-    left: -300px;
-  }
-}
-
-@media (min-width: 992px) {
-  #main {
-    margin-left: 100px;
-  }
-}
-
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/**
-* Desktop Navigation 
-*/
-.nav-menu {
-  padding: 0;
-  display: block;
-}
-
-.nav-menu * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.nav-menu > ul > li {
-  position: relative;
-  white-space: nowrap;
-}
-
-.nav-menu a, .nav-menu a:focus {
-  display: flex;
-  align-items: center;
-  color: rgb(37, 37, 37);
-  padding: 10px 18px;
-  margin-bottom: 8px;
-  transition: 0.3s;
-  font-size: 15px;
-  border-radius: 50px;
-  background: #ffffff;
-  height: 56px;
-  width: 100%;
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-.nav-menu a i, .nav-menu a:focus i {
-  font-size: 20px;
-}
-
-.nav-menu a span, .nav-menu a:focus span {
-  padding: 0 5px 0 7px;
-  color: #ffffff;
-}
-
-@media (min-width: 992px) {
-  .nav-menu a, .nav-menu a:focus {
-    width: 56px;
-  }
-  .nav-menu a span, .nav-menu a:focus span {
-    display: none;
-    color: #fff;
-  }
-}
-
-.nav-menu a:hover, .nav-menu .active, .nav-menu .active:focus, .nav-menu li:hover > a {
-  color: rgb(37, 37, 37);
-  background: none;
-}
-
-.nav-menu a:hover span, .nav-menu .active span, .nav-menu .active:focus span, .nav-menu li:hover > a span {
-  color: rgb(37, 37, 37);
-}
-
-.nav-menu a:hover, .nav-menu li:hover > a {
-  width: 100%;
-  color: rgb(37, 37, 37);
-}
-
-.nav-menu a:hover span, .nav-menu li:hover > a span {
-  display: block;
-}
-
-/* 
-* Top navbar 
-*/
-#top-navbar{
-  background-color: white;
-  height: 100px;
-  font-size: 20px;
-  padding-left: 40px;
-}
-
-.navbar-brand{
-  margin-left: 40px;
-}
-.navbar-nav{
-  margin-left: 30px;
-}
-.nav-item{
-  margin-left: 10px;
-  margin-right: 20px;
-}
-.nav-link{
-  color: rgb(37, 37, 37) !important;
-}
-
-#top-navbar .social-links{
-  font-size: 18px;
-}
-
-/**
-* Mobile Navigation 
-*/
-.mobile-nav-toggle {
-  position: fixed;
-  right: 10px;
-  top: 10px;
-  z-index: 9998;
-  border: 0;
-  background: none;
-  font-size: 28px;
-  transition: all 0.4s;
-  outline: none !important;
-  line-height: 0;
-  cursor: pointer;
-  border-radius: 50px;
-  padding: 5px;
-}
-
-.mobile-nav-toggle i {
-  color: #45505b;
-}
-
-.mobile-nav-active {
-  overflow: hidden;
-}
-
-.mobile-nav-active #header {
-  left: 0;
-}
-
-.mobile-nav-active .mobile-nav-toggle {
-  color: #fff;
-  background-color: #389fff;
-}
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -368,10 +173,15 @@ p{
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top right no-repeat;
+  /* background: url("../img/hero-bg.jpg") top right no-repeat; */
+  background: none;
   background-size: cover;
-  position: relative;
+  position: absolute;
+  top: 0;
   overflow: hidden;
+  padding-left: 0;
+  margin-top: 10%;
+  z-index: 1; 
 }
 
 @media (min-width: 992px) {
@@ -392,7 +202,8 @@ p{
 
 #hero h1 {
   margin: 0;
-  font-size: 800%;
+  margin-bottom: 20px;
+  font-size: 500%;
   font-family: "Saira Extra Condensed";
   font-weight: 700;
   line-height: 56px;
@@ -404,10 +215,10 @@ p{
 
 #hero p {
   color: #333333;
-  margin: 50px 0 0 10px;
-  font-size: 20px;
+  /* margin: 50px 0 0 10px; */
+  /* font-size: 20px; */
   font-family: "Signika Negative";
-  font-weight: 600;
+  /* font-weight: 600; */
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none;
@@ -426,12 +237,14 @@ p{
 }
 
 #hero a {
-  font-size: 24px;
+  /* font-size: 24px; */
   margin-right: 50px;
   transition: 0.3s;
 }
 
-
+.grad-bg{
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.671), rgb(255, 255, 255), rgba(255, 255, 255, 0));
+}
 
 
 @media (max-width: 992px) {
@@ -459,14 +272,14 @@ section {
 
 .section-title {
   text-align: center;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 .section-title h2 {
   font-size: 32px;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   padding-bottom: 20px;
   position: relative;
   color: #45505b;
@@ -565,18 +378,34 @@ hr{
 /*--------------------------------------------------------------
 # portfolio
 --------------------------------------------------------------*/
+.portfolio{
+  height: 60vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0;
+}
+
 .portfolio .icon-box {
-  text-align: center;
-  padding: 70px 20px 80px 20px;
+  margin: 15px 15px 15px 27px;
+  text-align: left;
+  /* padding: 70px 20px 80px 20px; */
   transition: all ease-in-out 0.3s;
-  background: #fff;
+  background: rgb(255, 255, 255);
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+  align-items: left;
+  justify-content: left;
+  height: 100px;
+  width: 90%;
+  border-radius: 25px;
 }
 
 .portfolio .icon-box .icon {
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
+  /* margin: auto 0; */
+  /* width: 100px; */
+  background: none;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -585,26 +414,38 @@ hr{
 }
 
 .portfolio .icon-box .icon i {
-  font-size: 36px;
+  font-size: 25px;
   transition: 0.5s;
   position: relative;
 }
 
 .portfolio .icon-box .icon svg {
+  margin-top: 10px;
+  margin-left: 7px;
   position: absolute;
   top: 0;
   left: 0;
+  height: 80%;
+  width: 80%;
 }
 
 .portfolio .icon-box .icon svg path {
+  margin-top: 10px;
+  margin-left: 7px;
   transition: 0.5s;
   fill: #f5f5f5;
+  height: 80%;
+  width: 80%;
 }
 
 .portfolio .icon-box h4 {
+  margin-left: 80px;
+  margin-top: -60px;
+  float: inherit;
+  text-align: left;
   font-weight: 600;
-  margin: 10px 0 15px 0;
-  font-size: 22px;
+  /* margin: 10px 0 15px 0; */
+  font-size: 18px;
 }
 
 .portfolio .icon-box h4 a {
@@ -613,9 +454,11 @@ hr{
 }
 
 .portfolio .icon-box p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
+  margin-left: 80px;
+  margin-top: -8px;
+  /* line-height: 12px; */
+  font-size: 12px;
+  /* margin-bottom: 0; */
   /* text-align: justify; */
 }
 
@@ -695,7 +538,6 @@ hr{
 .portfolio .iconbox-teal:hover .icon path {
   fill: #11dbcf;
 }
-
 
 /*--------------------------------------------------------------
 # Footer
